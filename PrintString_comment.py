@@ -20,6 +20,8 @@ print(list1[:1])
 print(list1[::-1])
 print('The length of the List is:', len(list1))
 
+# more on test2.py
+
 '''
 ------------------------Dictionaries-----------------------------
 '''
@@ -103,9 +105,63 @@ while (count <= 9):
 '''
 for i in range(1, 15 + 1, 3):  # 3 is the increment value
     print(i)
-    i = i + 2
+    'i = i + 2'
 
 print('end')
 
+''' ----------------------------------------string to lists/array elements----------------------------------'''
+array = []
 for x in 'Somarko Das':
+    list5 = [x]
+    array.append(x)
     print(x)
+
+print(list5)
+print(array)
+
+''' ----------------------------------- splitting ------------------------------------------------'''
+word1 = 'ram is good boy'
+print(word1.split())
+word2 = 'ram,is,a,good,boy'
+print(word2.split(','))
+word3 = 'hypothetically'
+print([word3[i:i + 3] for i in range(0, len(word3), 3)])
+'''------------------------------------Stars-------------------------------------------------------- '''
+for i in range(0, 5, 1):
+    for j in range(0, i + 1, 1):
+        print('*', end='')  # The end=' ' is just to say that you want a space after the end of the statement instead of a new line character.
+    print('\r')
+
+print('\r')
+print('\r')
+
+for x in range(5, 1, -1):
+    for j in range(1, x, 1):
+        print('*', end='')
+    print('\r')
+
+print('\r')
+print('\r')
+
+num =1
+for x in range(1, 5, 1):
+    for j in range(4, x, -1):
+        print(' ', end='')
+    for k in range(0, num, 1):
+        print('*', end='')
+    print('\r')
+    num = num+2
+
+
+for x in range(1, 5, 1):
+    for j in range(4, x, -1):
+        print(' ', end='')
+    for k in range(1, x, 1):
+        print('*', end='')
+    print('\r')
+
+
+list13 = [1, 2, 3, 'asd', 'bad', 'sad']
+print(list13)
+dict1 = {'1st': 'sub1', '2nd': 'sub2', '3rd': 'sub3'}
+print(dict1['1st'])
