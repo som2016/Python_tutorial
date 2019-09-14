@@ -154,3 +154,7 @@ d = a.difference(b)
 print(d)
 sd = a.symmetric_difference(b)
 print(sd)
+
+
+checklist = [1,2,3,4,5,6,7,8,9,0,123]
+print(checklist[-1])
