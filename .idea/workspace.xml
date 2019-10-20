@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="654079ba-af6d-49c5-b0b1-1c6753beda17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Left and right Shift charecters.py" beforeDir="false" afterPath="$PROJECT_DIR$/Left and right Shift charecters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Left and right Shift charecters">
+  <component name="RunManager" selected="Python.test">
     <configuration name="Left and right Shift charecters" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,8 +180,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Left and right Shift charecters" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.Left and right Shift charecters" />
         <item itemvalue="Python.function" />
         <item itemvalue="Python.inheretance" />
         <item itemvalue="Python.classes" />
