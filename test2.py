@@ -15,8 +15,7 @@ else:
 ''' need to know check with ignore case '''
 
 if True:
-    print(
-        " true executed")  # always this will be executed everytime i run the code but this will not show output infinitely
+    print(" true executed")  # always this will be executed every time i run the code but this will not show output infinitely
 else:
     print(" false executed")
 

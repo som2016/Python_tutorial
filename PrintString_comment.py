@@ -19,7 +19,7 @@ print(list1[0:2])
 print(list1[:1])
 print(list1[::-1])
 print('The length of the List is:', len(list1))
-checklist = [1,2,3,4,5,6,7,8,9,0,123]
+checklist = [1,2,3,4,5,6,7,8,9,0,1203]
 print(checklist[-1])
 
 # more on test2.py

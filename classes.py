@@ -23,7 +23,8 @@ print(student1.FirstName)
 
 '''
 class school:
-    def __init__(self, FirstName, LastName, Class, Percentage):
+    def __init__(self, FirstName, LastName, Class, Percentage): 
+    # init is a initialize method similar to a constructor, self is just the replacement of the object
         self.FirstName = FirstName
         self.LastName = LastName
         self.Class = Class
@@ -62,6 +63,13 @@ print(student1.FirstName)
 print(student2.FirstName)
 print(student1.fullName())
 print(student2.fullName())
-print(student1.__dict__)
+print(student1.__dict__)   # all instance variable
 student1.prof()
 print(student1.profession)
+student2.prof()
+print(student2.profession)
+print(school.__dict__)  # we see a new variable Profession added unlike in student1.__dict__ this is class variable, so
+'''
+Class variable is same for all methods in the class where as instance variable can be different each time a method is called
+You can change the class variable value in subsequent derived/child class as well.
+'''
