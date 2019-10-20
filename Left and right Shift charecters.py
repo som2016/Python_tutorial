@@ -17,5 +17,5 @@ for i in range(x2):
     temp2 = liststr2.pop()
     liststr2.insert(0,temp2)
 print('The new LeftShift List is: \n', liststr2)
-rightstr= rightstr.join(liststr2)
+rightstr = rightstr.join(liststr2)
 print('The Final leftShift is: \n', rightstr)
