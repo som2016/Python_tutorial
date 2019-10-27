@@ -1,7 +1,7 @@
 print('_________________________________________________________________________________________')
 print('function A function B uses function As variable and property without touching function A')
 print('_________________________________________________________________________________________')
-
+# Note You can somehow access the values as shown below but cant able to accessparent function's inner-functions or local functions and its variables
 
 def funA(v1, v2):
     c = v1 + v2
@@ -40,12 +40,10 @@ funC(11, 9)
 
 def funD():
     funC(2, 3)
-    print('In funD funC value is=',
-          funC)  # As we can see we can pass vars to parent but when we call the parent every time we have to provide parameters,
-
-
+    print('In funD funC value is=',funC)  # As we can see we can pass vars to parent but when we call the parent every time we have to provide parameters,
 #    '''Hence above is impossible but if we want parent func to do any task this is how we gonna call them'''
-
+#    print(funC[0]) #not working
+#     print(funC(1,2).v1) # not working
 funD()
 
 print('____________________________________________________________________________________')
@@ -196,4 +194,27 @@ v= ex5()
 print('The value of v=', v.__name__) # Henc by above logic we can use inner functions which is used in the following:
 #1. Use of Global variablen 2. Data Hiding
 v()
+print('______________________________________________________________________________________________________________')
+print('!!!!!!!!!!!!!!!!How to Access Main Function"s inner Functions via other functions!!!!!!!!')
+print('______________________________________________________________________________________________________________')
+
+def close(x):
+    def open(x):
+        p = 90
+        return  x*x
+    def open2(x):
+        p=90
+        return  x*x*x
+    return open,open2
+
+def lamp():  # This is the way I called the Inner functions
+    v,v2 = close(2)
+    print(close(2))
+    print(v.__name__)
+    print(v(3))
+    print(v2(10))
+
+lamp()
+
+close(30)
 
