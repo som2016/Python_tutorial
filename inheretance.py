@@ -28,34 +28,47 @@ obj1.movies()
 obj2 = new_rel(part1=2001, part2=2003, part3=2009)
 obj2.movies()
 
-'''
+
+print('____________________________________________________________________________________')
+print('*********************Method Resolution Oder***************************')
+print('____________________________________________________________________________________')
+
 # Python program showing 
 # how MRO works 
 
-class A: 
-	def rk(self): 
-		print(" In class A") 
-class B(A): 
-	def rk(self): 
-		print(" In class B") 
-class C(A): 
-	def rk(self): 
-		print("In class C") 
-class S(C):
-  def rk(self):
-    print("In Class S")
+class A:
+    def rk(self):
+        print(" In class A")
 
-# classes ordering 
-class D(S,C,B,A):
-  pass
-	
-r = D() 
-r.rk() 
+
+class B(A):
+    def rk(self):
+        print(" In class B")
+
+
+class C(A):
+    def rk(self):
+        print("In class C")
+
+
+class S(C):
+    def rk(self):
+        print("In Class S")
+
+
+# classes ordering
+class D(S, C, B, A):
+    pass
+
+
+r = D()
+r.rk()
+print(D.mro())
 
 # Method resolution oder > is the way you call it like K(M,n,o) so M is checked first for init after K
-# also note that the subclasses should be derived first e.g D(S) as S is a sub class of C so S should be the first to get called
-'''
+# also note that the subclasses should be derived first e.g C(S) as S is a sub class of C so S should be the first to get called
 
+print('____________________________________________________________________________________')
 
 class Dates:
     hello = 'hello'
@@ -129,5 +142,41 @@ ob.change1()
 ob.c1()
 A1.change2()
 ob.c2()
+print('____________________________________________________________________________________')
+
 
 ''' Accesssors are used to fetch the data while mutators term is used where u want the change the data'''
+''' Decorators in class'''
+class help1:
+    string = 'HelloGamers'
+    def __init__(self,var1,):
+        self.var1 =var1
+    def print_something(self):
+        print('Hello in Help1, in print_something and var1= ',self.var1)
+    # Method overloading is a feature where you can have variable no. of parameters of a same function
+    def method2(self, string=None ): # Note: we can't use method Overloading in python but workaround is using method_name(*args)
+        if string == None:
+            print('No String Found')
+        else:
+            print('String value is:', self.var1+string )
+
+'''ob = help1('Camel')
+ob.print_something()
+ob.method2()
+'''
+class help2(help1):
+#    def print_something(self):   # If we directly call it without inheriting it will just call the previous func.,overriding will not work
+        # and obj. had to be called in parent class or else error
+#       print('Hello in Help2')
+    def __init__(self,var1,var2):
+        super().__init__(var1)
+        self.var2 = var2
+
+
+    def print_something(self): # In case we uncomment print_something of hel2, last fuction will override it and only last func will be shown
+        print('Hello in Help2, in print_something and var1+var2= ', self.var1+self.var2)
+        print(self)
+
+
+ob2 = help2('Pagal','Panti')
+ob2.print_something()
