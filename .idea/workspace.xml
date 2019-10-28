@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="654079ba-af6d-49c5-b0b1-1c6753beda17" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inheretance.py" beforeDir="false" afterPath="$PROJECT_DIR$/inheretance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function_types_II.py" beforeDir="false" afterPath="$PROJECT_DIR$/function_types_II.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rough.py" beforeDir="false" afterPath="$PROJECT_DIR$/rough.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.inheretance">
+  <component name="RunManager" selected="Python.function_types_II">
     <configuration name="PrintString_comment" type="PythonConfigurationType" factoryName="Python">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -202,10 +203,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.rough" />
         <item itemvalue="Python.inheretance" />
         <item itemvalue="Python.classes" />
         <item itemvalue="Python.functions_types" />
-        <item itemvalue="Python.rough" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -277,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572165372339</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Left and Rght Shift programming">
+      <created>1572178397576</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1572178397576</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

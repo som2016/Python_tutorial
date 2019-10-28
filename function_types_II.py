@@ -90,18 +90,24 @@ print(div2(6, 0, 4))
 print('____________________________________________________________________________________')
 print('!!!!!!!Passing parameter via Decorator!!!!!')
 print('____________________________________________________________________________________')
+
+
 def deco_main(args):
     def outer(func):
         def inner():
             print(func())
-            return  func() + args
+            return func() + args
+
         return inner
+
     return outer
 
 
 @deco_main('Som')
 def main():
     return 'In Main: '
+
+
 print(main())
 
 # Need to know if We can able to call local functions of main function(i.e inner function of main())
@@ -111,32 +117,30 @@ print('***************Lambda Expressions/MAP/Filter/Reduce**********************
 print('____________________________________________________________________________________')
 # it is used for functions that will be used once only ex. sorting, taking input etc. also
 print('!!!!!---Example-1---!!!!!')
-list1 = [10,11,12,13,14,15,16,17,18,19,20,21,22]
-f = (list(filter(lambda n: n%2==0,list1)))
-print('The Even Numbers are: ',f)
-
+list1 = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+f = (list(filter(lambda n: n % 2 == 0, list1)))
+print('The Even Numbers are: ', f)
 
 print('!!!!!---Example-2---!!!!!')
 
-#ex = 'Som Hello'
-#print(ex.strip('Hello'))
-g = lambda surname,firstname: surname.strip().title()+ " "+ firstname.strip().title()
+# ex = 'Som Hello'
+# print(ex.strip('Hello'))
+g = lambda surname, firstname: surname.strip().title() + " " + firstname.strip().title()
 print(g(' som', 'das '))
 
 print('!!!!!---Example-4--- Arrange a list of names with their titles!!!!!')
 
-ex = ['Som Das', 'Rahul Kumar Shukla', 'Prnal Gandhi','Bajal Adams','Ashley Adams','Sophia leone', 'K.shukla']
-ex.sort(key = lambda n: n.split(" ")[-1].lower())
+ex = ['Som Das', 'Rahul Kumar Shukla', 'Prnal Gandhi', 'Bajal Adams', 'Ashley Adams', 'Sophia leone', 'K.shukla']
+ex.sort(key=lambda n: n.split(" ")[-1].lower())
 print(ex)
 
-
 print('!!!!!---Example-5---Work thorough each tuple elements!!!!!')
-temp_list = [('Kolkata', 21), ('Delhi', 11), ('Pune', 4),('Bangalore', 18)]
+temp_list = [('Kolkata', 21), ('Delhi', 11), ('Pune', 4), ('Bangalore', 18)]
 res = list(map(itemgetter(1), temp_list))
 print(res)
 
-celcius = lambda temp: (temp[0],(9/5)*temp[1]+32)
-print(list(map(celcius,temp_list)))
+celcius = lambda temp: (temp[0], (9 / 5) * temp[1] + 32)
+print(list(map(celcius, temp_list)))
 print('____________________________________________________________________________________')
 '''map() function returns a list of the results after applying the given function to each item of a given iterable (list, tuple etc.)
 Syntax : 
@@ -154,17 +158,93 @@ my_list = ["geeks", "geeg", "keek", "practice", "aa", "mam"]
 output = list(filter(lambda x: x == "".join(reversed(x)), my_list))
 print(output)
 
-output2 = list(filter(lambda x: x == "mam",my_list))
+output2 = list(filter(lambda x: x == "mam", my_list))
 print(output2)
 print('____________________________________________________________________________________')
-lis = [ 1 , 3, 5, 6, 2, ]
-opt1 = list(map(lambda x: x+x, lis)) # this happening on each individual element but its a list, giving list cant be individual element.
-opt2 = functools.reduce(lambda x,y: x+y, lis) # Reduce function what did is added each items in the list  and given a single output
+lis = [1, 3, 5, 6, 2, ]
+opt1 = list(map(lambda x: x + x,
+                lis))  # this happening on each individual element but its a list, giving list cant be individual element.
+opt2 = functools.reduce(lambda x, y: x + y,
+                        lis)  # Reduce function what did is added each items in the list  and given a single output
 print(opt2)
 
 print('____________________________________________________________________________________')
-print('*********************overloading and overriding Functions***************************')
+print('*********************Decorators->wraps***************************')
 print('____________________________________________________________________________________')
-'''In Classes/Inheritance.py'''
 
 
+# Wraps is used to hide the original function name
+
+def dec_main1(func):
+    @functools.wraps(func)  # THis hides .__name__ from showing inner as the main function
+    def inner(*args):
+        list1 = args[1:]
+        if 0 in list1:
+            return 'Please type non-Zero Number'
+        else:
+            return func(*args)
+
+    return inner
+
+
+@dec_main1
+def main1(x, y):
+    print('The output of main1 is:', x * y)
+
+
+@dec_main1
+def main2(x, y, z):
+    print('The output of main2 is:', x * y / z)
+
+
+main1(12, 13)
+main2(16, 12, 10)
+print(main1.__name__)
+print(main2.__name__)
+
+print('____________________________________________________________________________________')
+print('*********************classes->Decorators functions***************************')
+print('____________________________________________________________________________________')
+
+
+def dec_mainx(func):
+    @functools.wraps(func)  # THis hides .__name__ from showing inner as the main function
+    def inner(name_ref):
+        list1x = name_ref.listx
+        value1 = name_ref.value
+        print('In inner, 2nd value is: ', value1)
+        if 0 in list1x:
+            print('Please type non-Zero Number')
+        else:
+            return func(name_ref)
+
+    return inner
+
+
+class main_hello:
+
+    def __init__(self, *args):
+        self.args = args
+        self.value = 'Hello World!'
+
+    def __call__(self):  # this will execute by default but we have to call the object as done below
+        self.listx = list(self.args)
+
+    #       print('The values in listx are: ', self.listx)
+
+    @dec_mainx
+    def main3(self):
+        print('The output of main1 is:', self.listx[0] * self.listx[1])
+
+    @dec_mainx
+    def main4(self):
+        print('The output of main2 is:', self.listx[0] * self.listx[1] / self.listx[2])
+
+
+ob = main_hello(12, 0)
+ob2 = main_hello(13, 14, 10)
+ob()
+ob.main3()
+print(ob.main3.__name__)
+ob2()
+ob2.main4()
