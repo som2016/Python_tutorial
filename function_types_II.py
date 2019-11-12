@@ -248,3 +248,27 @@ ob.main3()
 print(ob.main3.__name__)
 ob2()
 ob2.main4()
+print('____________________________________________________________________________________')
+print('*********************classes Decorators<-functions***************************')
+print('____________________________________________________________________________________')
+
+
+class ddecorator:
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print(self.func)
+        return self.func(*args, **kwargs)
+
+
+@ddecorator
+def main111(x, y):
+    print('The output of main1 is:', x * y)
+
+
+main111(123, 98)
+
+# There are also class decorators, decorator within a decorators. Also need to Know Property decorator. Hint: it is achived by declaring those variables
+
+# in each method also using __var plus using Property decorator fo lineancy for client usage

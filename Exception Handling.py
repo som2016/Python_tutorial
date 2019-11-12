@@ -1,16 +1,30 @@
-import functools
+import sys
 
 
-def input_decor(func):
-    @functools.wraps(func)
-    def inner(args):
-        try:
-            return func(args)
-        except ValueError as e1:
-            print('Integer Only!!! no "String or Char" , Please try again!')
-            return inner(args)
+def check():
+    assert ('win' in sys.platform)  # , "Your text here"
+    print("Hello Linux")
 
-    return inner
+
+def divide(a, b):
+    assert (b != 0), "Please no Zero"
+    print(a / b)
+
+
+'''Assertion is used for maainly debuging purpose and for unit tests, there are multiple assertion methods as well
+like assertAlmostEqual,assertRaises,assertDictEqual etc'''
+try:
+    check()
+    divide(10, 0)
+except AssertionError as er:
+    print(er)
+    print("This function can only run in Linux Systems")
+
+'''Whenever an exception is occured it is 1st handeled then code proceeds to another'''
+
+print('______________________________________________________________________________________________________________')
+print('!!!!!!!!!!!!!!!!Exception handling with Raise finally try and else!!!!!!!!')
+print('______________________________________________________________________________________________________________')
 
 
 class calculator:
@@ -18,7 +32,6 @@ class calculator:
         self.inputList = list()
         # self.task_add()
 
-    @input_decor
     def take_input(self):
         i = 1
         while True:
