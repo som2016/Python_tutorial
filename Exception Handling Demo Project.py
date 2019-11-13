@@ -1,31 +1,3 @@
-import sys
-
-
-def check():
-    assert ('win' in sys.platform)  # , "Your text here"
-    print("Hello Linux")
-
-
-def divide(a, b):
-    assert (b != 0), "Please no Zero"
-    print(a / b)
-
-
-'''Assertion is used for maainly debuging purpose and for unit tests, there are multiple assertion methods as well
-like assertAlmostEqual,assertRaises,assertDictEqual etc'''
-try:
-    check()
-    divide(10, 0)
-except AssertionError as er:
-    print(er)
-    print("This function can only run in Linux Systems")
-
-'''Whenever an exception is occured it is 1st handeled then code proceeds to another'''
-
-print('______________________________________________________________________________________________________________')
-print('!!!!!!!!!!!!!!!!Exception handling with Raise finally try and else!!!!!!!!')
-print('______________________________________________________________________________________________________________')
-
 import functools
 
 
@@ -49,8 +21,11 @@ def a_task_decor(func):
     def inner(args):
         try:
             return func(args)
-        except TypeError as e1:
-            print('Select From the Given Output and Please try again!')
+        except ValueError as e1:
+            print('Provided Digit instead of String hence Please try again!')
+            return inner(args)
+        except TypeError as e2:
+            print('Please type from the Mentioned option and try again!')
             return inner(args)
 
     return inner
@@ -67,7 +42,7 @@ class calculator:
         while True:
 
             if i == 1 or i == 2:
-                x = (int(input('Enter %d number: ' % i)))
+                x = (float(input('Enter %d number: ' % i)))
                 if x < 0:
                     raise TypeError#("Number should not be less than 0")
                 elif x > 0:
@@ -93,9 +68,7 @@ class calculator:
         print('Entered input is: ', self.inputList)
         opt = input('Enter A-add, M-multiply, D-divide,S-subtract: ')
         opt = opt.casefold()
-        print(opt.isdigit())
-        print(opt)
-        if opt.isdigit() == 'False':
+        if not opt.isdigit():
             if opt == 'a' or opt == 'add' or opt == 'addition':
                 self.task_add()
             elif opt == 'm' or opt == 'multiply' or opt == 'multiplication' or opt == 'mul':
@@ -104,9 +77,10 @@ class calculator:
                 self.task_div()
             elif opt == 's' or opt == 'sub' or opt == 'subtract' or opt == 'subtraction':
                 self.task_sub()
+            else:
+                raise TypeError
         else:
-            print('in else')
-            raise TypeError
+            raise ValueError
 
     def task_add(self):
         print('add')
@@ -122,5 +96,5 @@ class calculator:
 
 
 ob = calculator()
-#ob.take_input()
+ob.take_input()
 ob.ask_task()
