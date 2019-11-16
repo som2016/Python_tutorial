@@ -15,7 +15,6 @@ def exception_handling(func):
             return func()
         except FileNotFoundError as er:
             print('No Such File Found, Please Try Again!!!')
-            return None
         except IndexError as er2:
             print("Please Enter File Path while Running the Script")
 
