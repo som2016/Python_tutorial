@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 import functools
 import sys
-import threading
+import multiprocessing
 
 xlist, xlistF = [], []
 
@@ -32,9 +32,9 @@ def file_read():
             xlist.append(temp) if '0' in line else xlistF.append(temp)
     fp.close()
     sort_list(xlist, xlistF)
-    t1 = threading.Thread(target=out_puts)
-    t2 = threading.Thread(target=out_putf)
-    t1.start(),t2.start()
+    if __name__ == '__main__':
+        p1,p2 = multiprocessing.Process(target=out_puts),multiprocessing.Process(target=out_putf)
+        p1.start(),p2.start(),p1.join(),p2.join()
 
 def sort_list(xlist, xlistF):
     global listS, listF
@@ -44,8 +44,7 @@ def sort_list(xlist, xlistF):
 def out_puts():
     sfile = open('Success_Log--' + datetime.now().strftime("%d-%m-%Y_%I-%M-%S_%p"), 'w')
     for line in listS:
-        sfile.write(line)
-        sfile.write("\n")
+        sfile.write(line),sfile.write("\n")
     sfile.close()
 
 
@@ -55,9 +54,8 @@ def out_putf():
         xfile.write('Nothing Failed')
     else:
         for line in listS:
-            print(line)
-            xfile.write(line)
-            xfile.write("\n")
+            xfile.write(line),xfile.write("\n")
     xfile.close()
 
 file_read()
+
