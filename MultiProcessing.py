@@ -1,14 +1,16 @@
 # Multi Processing  --- Done
 # when to USe Threading when to Use MultiProcessor  --- Done
 # With Statement -- use for reading/writing files sockets etc
-# URLLIB(RESTAPI)
+# Request Module(RESTAPI)
 # JSON PARSER
 # DATABASE CONNECTIVITY
 # OS MODULE
 # SHELL COMMANDS MODULE
 # Decorators - Getters, Setters, and Deleters
 # Lambda MAP Filter Reduce Revision
-# class instance
+# class instance abstract class
+# What are metaclasses in Python?
+# Does Python have a ternary conditional operator?
 
 import multiprocessing
 from time import sleep
