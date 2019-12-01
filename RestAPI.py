@@ -9,6 +9,9 @@ for line in fp:
     temp = re.sub('[\n: \t]', '', line)
     list1.append(temp)
 
+# Dumps-> Convert from Python to JSON
+# Loads -> Parse JSON - Convert from JSON to Python
+
 print('___________________________ __________________ ________________________________________________________________')
 print('___________________________ Basic POST Request ________________________________________________________________')
 print('___________________________ __________________ ________________________________________________________________')
@@ -38,7 +41,7 @@ url = 'https://api.github.com/users/som2016/repos'
 response = login.get(url, verify=False,)
 print(response.json())
 temp = response.json()
-#print(json.dumps(temp, sort_keys=True, indent=4))         ## sort_keys = True tells the encoder to return the JSON object keys in a sorted order,
+print(json.dumps(temp, sort_keys=True, indent=4))         ## sort_keys = True tells the encoder to return the JSON object keys in a sorted order,
 with open('data.json', 'w') as f:                          ## Data.json is the new file name
     json.dump(temp, f, sort_keys=True, indent=4)           ## Note here json.dumps() won't work it will give blank file
 
